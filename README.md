@@ -12,4 +12,4 @@ Use SQL to explore the Sakila database of movie rentals
 
 ### Files
 Queries.txt file is the collection of queries created to generate answers to the questions.
-Report.pdf presents the queries resuting data in a visual format.
+Report.pdf presents the queries resulting data in a visual format.

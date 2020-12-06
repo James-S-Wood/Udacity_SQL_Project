@@ -16,7 +16,7 @@ FROM
   ON f.film_id = i.film_id
   JOIN rental r
   ON i.inventory_id = r.inventory_id
-  WHERE c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family',)
+  WHERE c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
 )sub
 GROUP BY 2,1
 ORDER By 2,1;

@@ -1,22 +1,25 @@
 #QUESTION 1
 
-WITH t1 AS (SELECT *
-      			FROM category AS c
-      			JOIN film_category AS fc
-      			ON fc.category_id = c.category_id
-      			JOIN film AS f
-      			ON f.film_id = fc.film_id
-      			JOIN Inventory AS i
-      			ON i.film_id = f.film_id
-      			JOIN rental AS r
-      			ON i.inventory_id = r.inventory_id
-      			WHERE name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
-      			ORDER BY title)
-
-SELECT title AS film_title, name AS category_name, COUNT(*) AS rental_count
-FROM AS t1
-GROUP BY 1,2
-ORDER BY category_name, film_title, rental_count DESC;
+SELECT Film_title,
+	   Category,
+       COUNT(*) AS Rental_count
+FROM
+(
+  SELECT f.title AS Film_title,
+	     c.name AS Category
+  FROM film_category fc
+  JOIN film f
+  ON f.film_id = fc.film_id
+  JOIN category c
+  ON c.category_id = fc.category_id
+  JOIN inventory i
+  ON f.film_id = i.film_id
+  JOIN rental r
+  ON i.inventory_id = r.inventory_id
+  WHERE c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family',)
+)sub
+GROUP BY 2,1
+ORDER By 2,1;
 
 
 

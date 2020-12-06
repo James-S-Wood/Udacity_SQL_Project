@@ -13,7 +13,6 @@ WITH t1 AS (SELECT *
       			WHERE name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
       			ORDER BY title)
 
-
 SELECT title AS film_title, name AS category_name, COUNT(*) AS rental_count
 FROM AS t1
 GROUP BY 1,2
